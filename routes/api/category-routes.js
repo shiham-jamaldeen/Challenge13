@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { Category, Product } = require("../../models");
-const { where } = require("sequelize");
 
 // This is the  `/api/categories` endpoint
 
@@ -82,14 +81,3 @@ router.delete("/:id", async (req, res) => {
 });
 
 module.exports = router;
-
-//creat new category use POST
-//
-/* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
