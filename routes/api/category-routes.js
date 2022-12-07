@@ -1,28 +1,95 @@
-const router = require('express').Router();
-const { Category, Product } = require('../../models');
+const router = require("express").Router();
+const { Category, Product } = require("../../models");
+const { where } = require("sequelize");
 
-// The `/api/categories` endpoint
+// This is the  `/api/categories` endpoint
 
-router.get('/', (req, res) => {
+router.get("/", async (req, res) => {
   // find all categories
-  // be sure to include its associated Products
+
+  try {
+    const getAllCategories = await Category.findAll({
+      include: [{ model: Product }],
+    });
+    res.status(200).json(getAllCategories);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.get('/:id', (req, res) => {
+router.get("/:id", async (req, res) => {
   // find one category by its `id` value
-  // be sure to include its associated Products
+
+  try {
+    const getCategoryByID = await Category.findByPk(req.params.id, {
+      include: [{ model: Product }],
+    });
+    if (!getCategoryByID) {
+      res.status(404).json(`Sorry category was not found`);
+    } else {
+      res.status(200).json(getCategoryByID);
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.post('/', (req, res) => {
-  // create a new category
+router.post("/", async (req, res) => {
+  try {
+    const insertCategoryName = await Category.create({
+      category_name: req.body.category_name,
+    });
+    res.status(200).json(insertCategoryName);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.put('/:id', (req, res) => {
+router.put("/:id", async (req, res) => {
   // update a category by its `id` value
+  try {
+    const updateCategoryName = await Category.update(
+      { category_name: req.body.category_name },
+      { where: { id: req.params.id } }
+    );
+
+    if (!updateCategoryName[0]) {
+      res.status(404).json("Sorry, category id was not found");
+      return;
+    } else {
+      res.status(200).json(updateCategoryName);
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.delete('/:id', (req, res) => {
+router.delete("/:id", async (req, res) => {
   // delete a category by its `id` value
+  try {
+    const deleteCateoryByID = await Category.destroy({
+      where: { id: req.params.id },
+    });
+    if (!deleteCateoryByID) {
+      res.status(404).json("Sorry, category id was not found");
+      return;
+    } else {
+      res.status(200).json(`Success! Category ${req.params.id} was deleted`);
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
+
+//creat new category use POST
+//
+/* req.body should look like this...
+    {
+      product_name: "Basketball",
+      price: 200.00,
+      stock: 3,
+      tagIds: [1, 2, 3, 4]
+    }
+  */
