@@ -12,8 +12,23 @@
 
 
 ## Database schema and routes
+The `Category` database consists of the following columns and constraints. 
+```
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| id            | int          | NO   | PRI | NULL    | auto_increment |
+| category_name | varchar(255) | NO   |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
 
-
+Routes
+- GET API/CATEGORIES
+- GET API/CATEGORIES/ID:
+- POST API/CATEGORIES
+- PUT API/CATEGORIES/ID:
+- DEL API/CATEGORIES/ID:
+```
+The `` 
 
 
 ## Installation
@@ -33,7 +48,7 @@ Here is a quick demo of how the application functions.
 ### GET METHOD for ALL routes
 ```
 The following routes are demonstrated in the short video below:
-- /API/CATEGORIES
+- API/CATEGORIES
 - API/CATEGORIES/ID:
 - API/PRODUCTS
 - API/PRODUCTS/ID:
