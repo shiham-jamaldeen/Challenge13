@@ -67,10 +67,10 @@ Routes:
 - DEL API/TAGS/ID:
 ```
 ## Installation
-
-1. Run `source schema.sql` at the `mySQL` prompt and setup the database.
-2. If required, run `node seeds/index.js` at the command prompt to add test data to the database
-
+1. Clone the repo from GitHub to your local folder.
+2. Run the command `npm i` to install the necessary package dependencies
+3. Run `source db/schema.sql` at the `mySQL` prompt and setup the database.
+4. If required, run `node seeds/index.js` at the command prompt to add test data to the database
 
 ## Usage instructions
 - Enter `node server.js` at the command prompt to start the server. Pressing CTRL + C will stop the server.
