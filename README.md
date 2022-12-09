@@ -1,12 +1,19 @@
 # e-commerce Backend
 
+## Table of Contents
+- [Description](description)
+- [Database schema and routes](database-schema-routes)
+- [Installation](installation)
+- [Usage instructions](usage-instructions)
+- [Demo and walkthough](demo-walkthough)
+
+
 ## Description
 
 
-## Table of Contents
-- Installation(installation)
-- Usage instructions(Usage-instructions)
-- Demo and walkthough(Demo-and-walkthough)
+## Database schema and routes
+
+
 
 
 ## Installation
@@ -17,7 +24,7 @@
 
 ## Usage instructions
 - Enter `node server.js` at the command prompt to start the server. Pressing CTRL + C will stop the server.
-- Use _Insomnia_ (this is a free tool) to test the routes and CRUD opteration. See section **Demo and walthrough** for some examples on how to do this.
+- Use Insomnia (this is a free tool) to test the routes and CRUD opteration. See section **Demo and walthrough** for some examples on how to do this.
 
 ## Demo and walkthough
 Here is a quick demo of how the application functions.
