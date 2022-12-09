@@ -9,7 +9,7 @@
 
 
 ## Description
-This application is the "back end" engine of an e-commerce site that drives possible interactions of the user from the web browser. The application uses `Express.js` API to use `Sequelize` to interact with a `MySQL` database. You will require an API Client such as Insomnia to test the routes and the database.
+This application is the "back end" engine of an e-commerce site that drives possible interactions of the user from the web browser. The application uses `Express.js` and `Sequelize` to interact with a `MySQL` database. You will require an API Client such as Insomnia to test the routes and the database.
 
 
 
@@ -68,7 +68,7 @@ Routes:
 ```
 ## Installation
 1. Clone the repo from GitHub to your local folder.
-2. Run the command `npm i` to install the necessary package dependencies
+2. Run the command `npm i` to install the necessary packages `dotenv, express, mysql2` and `sequelize`.
 3. Run `source db/schema.sql` at the `mySQL` prompt and setup the database.
 4. If required, run `node seeds/index.js` at the command prompt to add test data to the database
 
