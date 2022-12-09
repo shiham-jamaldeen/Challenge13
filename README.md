@@ -9,6 +9,8 @@
 
 
 ## Description
+This application is the "back end" engine of an e-commerce site that drives possible interactions of the user from the web browser. The application uses `Express.js` API to use `Sequelize` to interact with a `MySQL` database. You will require an API Client such as Insomnia to test the routes and the database.
+
 
 
 ## Database schema and routes
@@ -28,9 +30,42 @@ Routes
 - PUT API/CATEGORIES/ID:
 - DEL API/CATEGORIES/ID:
 ```
-The `` 
+The `Product` database consists of the following columns and constraints. 
+```
++--------------+---------------+------+-----+---------+----------------+
+| Field        | Type          | Null | Key | Default | Extra          |
++--------------+---------------+------+-----+---------+----------------+
+| id           | int           | NO   | PRI | NULL    | auto_increment |
+| product_name | varchar(255)  | NO   |     | NULL    |                |
+| price        | decimal(10,2) | NO   |     | NULL    |                |
+| stock        | int           | NO   |     | 10      |                |
+| category_id  | int           | YES  | MUL | NULL    |                |
++--------------+---------------+------+-----+---------+----------------+
 
+Routes
+- API/PRODUCTS
+- API/PRODUCTS/ID:
+- POST API/PRODUCTS
+- PUT API/PRODUCTS/ID:
+- DEL API/PRODUCTS/ID:
+```
 
+The `Tag` database consists of the following columns and constraints. 
+```
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| tag_name | varchar(255) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+
+Routes:
+- API/TAGS
+- API/TAGS/ID:
+- POST API/TAGS
+- PUT API/TAGS/ID:
+- DEL API/TAGS/ID:
+```
 ## Installation
 
 1. Run `source schema.sql` at the `mySQL` prompt and setup the database.
@@ -39,7 +74,7 @@ The ``
 
 ## Usage instructions
 - Enter `node server.js` at the command prompt to start the server. Pressing CTRL + C will stop the server.
-- Use Insomnia (this is a free tool) to test the routes and CRUD opteration. See section **Demo and walthrough** for some examples on how to do this.
+- Use Insomnia to test the routes and CRUD opteration. See section **Demo and walthrough** for some examples on how to do this.
 
 ## Demo and walkthough
 Here is a quick demo of how the application functions.
